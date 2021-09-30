@@ -1,0 +1,18 @@
+{
+  "devDependencies": {
+    "@babel/core": "7.12.10",
+    "@babel/preset-env": "7.12.11",
+    "babel-loader": "8.2.2",
+    "compression-webpack-plugin": "9.0.0",
+    "http-server": "13.0.2",
+    "webpack": "5.55.1",
+    "webpack-cli": "4.8.0",
+    "sass": "1.42.1"
+  },
+  "scripts": {
+    "serve": "http-server htdocs -p 8000 -c-1",
+    "sass-watch": "sass htdocs/src:htdocs/css --no-source-map --watch",
+    "sass": "sass htdocs/src:htdocs/css --no-source-map",
+    "webpack": "webpack"
+  }
+}

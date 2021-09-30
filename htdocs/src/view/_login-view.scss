@@ -1,0 +1,29 @@
+@use "../common";
+
+.component.login-view {
+
+  .container {
+    max-height: 16rem;
+    max-width: 20rem;
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    margin: auto;
+
+    background-color: common.$background-gray;
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: solid 1px common.$border-color;
+
+    .login-id, .password {
+      width: 100%;
+    }
+
+    .row {
+      margin-bottom: 2rem;
+    }
+
+    button.login {
+      width: 100%;
+    }
+  }
+}

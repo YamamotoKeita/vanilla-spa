@@ -1,0 +1,22 @@
+@use "../common";
+
+.component.nursery-list-view {
+  .title {
+    font-weight: bold;
+    padding: 1rem;
+  }
+
+  .nursery-list {
+    width: 100%;
+    table-layout: fixed;
+    font-size: 0.9rem;
+
+    thead {
+      th {
+        &.detail {
+          width: 5rem;
+        }
+      }
+    }
+  }
+}

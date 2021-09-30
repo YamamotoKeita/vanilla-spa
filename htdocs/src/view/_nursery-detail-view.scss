@@ -1,0 +1,83 @@
+@use "../common";
+
+.component.nursery-detail-view {
+  background-color: common.$background-gray;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  header {
+    background-color: common.$background-color;
+    box-shadow: 2px 2px 6px 1px rgb(0 0 0 / 20%);
+    position: relative;
+    text-align: center;
+
+    .name {
+      font-weight: bold;
+      padding: 1rem;
+    }
+
+    .back-button {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      bottom: 0;
+      top: 0;
+      left: 1rem;
+      background: none;
+      gap: 0.3rem;
+
+      span {
+        color: common.$theme-color;
+      }
+
+      svg {
+        fill: common.$theme-color;
+        height: 1.4rem;
+      }
+    }
+  }
+
+  .main-container {
+    flex-grow: 1;
+    min-height: 0;
+    background-color: common.$background-color;
+    width: 90%;
+    height: 80%;
+    max-width: 50rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+
+    .title {
+      font-weight: bold;
+      padding: 0.5rem 0;
+    }
+
+    .information {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+
+      dl {
+        display: flex;
+        padding: 10px 0;
+
+        dt {
+          width: 10rem;
+          font-weight: normal;
+        }
+        dd {
+          word-break: break-all;
+        }
+      }
+
+      hr {
+        border-color: common.$border-color;
+      }
+    }
+
+    .policy {
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+  }
+}

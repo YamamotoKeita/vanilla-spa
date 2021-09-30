@@ -1,0 +1,43 @@
+$theme-color: #01a2cc;
+$font-color: #4B4B4B;
+$border-color: #CBC8C8;
+$button-color: $theme-color;
+$sub-button-color: #A0A0A0;
+$background-color: white;
+$background-gray: #F0F0F0;
+$dark-skin-color: rgba(0, 0, 0, 0.5);
+
+/* 画面サイズ スマホ向け */
+@mixin sp {
+  @media screen and (max-width:599px) {
+    @content;
+  }
+}
+
+/* 画面サイズ タブレット向け */
+@mixin tab {
+  @media screen and (min-width:600px) and (max-width:899px) {
+    @content;
+  }
+}
+
+/* 画面サイズ PC向け */
+@mixin pc {
+  @media screen and (min-width:900px) {
+    @content;
+  }
+}
+
+/* 画面サイズ スマホ＆タブレット向け */
+@mixin sp-tab {
+  @media screen and (max-width:899px) {
+    @content;
+  }
+}
+
+/* 画面サイズ タブレット＆PC向け */
+@mixin tab-pc {
+  @media screen and (min-width:600px) {
+    @content;
+  }
+}
