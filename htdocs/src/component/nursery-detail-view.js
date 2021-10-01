@@ -24,8 +24,9 @@ export default class NurseryDetailView extends Component {
     }
 
     onEnterForeground() {
-        let nursery = this.nurseryRepository.getNursery(this.nurseryId);
-        this.updateView(nursery);
+        this.nurseryRepository.getNursery(this.nurseryId, nursery => {
+            this.updateView(nursery);
+        });
     }
 
     updateView(nursery) {

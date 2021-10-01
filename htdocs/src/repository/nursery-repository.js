@@ -6,22 +6,39 @@ import ApiConnector from "../api/api-connector.js";
  */
 export default class NurseryRepository {
     constructor() {
-        this.onNurseryUpdated = nurseries => {};
         this.nurseries = null;
+        this.callbacks = [];
     }
 
-    refresh() {
+    loadData() {
         let api = new GetNurseriesApi();
         new ApiConnector(api).run(response => {
             this.nurseries = response;
-            this.onNurseryUpdated(response);
+            this.callbacks.forEach(callback => callback(response));
+            this.callbacks.length = 0;
         });
     }
 
-    getNursery(nurseryId) {
+    getAllNurseries(then) {
         if (this.nurseries) {
-            return this.nurseries.find(nursery => nursery.id === nurseryId);
+            then(this.nurseries);
+        } else {
+            this.loadData();
+            this.callbacks.push(then);
         }
-        return null;
+    }
+
+    getNursery(nurseryId, then) {
+        let callback = () => {
+            let nursery = this.nurseries.find(nursery => nursery.id === nurseryId);
+            then(nursery);
+        }
+
+        if (this.nurseries) {
+            callback();
+        } else {
+            this.loadData();
+            this.callbacks.push(callback);
+        }
     }
 }

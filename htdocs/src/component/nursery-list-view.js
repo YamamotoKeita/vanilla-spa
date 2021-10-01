@@ -11,11 +11,10 @@ export default class NurseryListView extends Component {
         this.tbody = this.findElement('table.nursery-list tbody');
 
         this.nurseryRepository = store.nurseryRepository;
-        this.nurseryRepository.onNurseryUpdated = nurseries => this.onNurseryUpdated(nurseries);
     }
 
     onEnterForeground() {
-        this.nurseryRepository.refresh();
+        this.nurseryRepository.getAllNurseries(nurseries => this.onNurseryUpdated(nurseries));
     }
 
     onNurseryUpdated(nurseries) {
