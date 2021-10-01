@@ -1,3 +1,4 @@
 node_modules/
 .idea/
 htdocs/bundle/
+htdocs/css/application.css
