@@ -24,7 +24,7 @@ export default class ModalIndicator extends Component {
 
     static hide() {
         if (modalIndicatorView !== null) {
-            modalIndicatorView.element.remove();
+            modalIndicatorView.element.parentNode.removeChild(modalIndicatorView.element);
         }
     }
 

@@ -44,7 +44,7 @@ export default class Router {
         component.router = this;
 
         if (0 < this.pageStack.length) {
-            this.foregroundPage.element.remove();
+            this.foregroundPage.element.parentNode.removeChild(this.foregroundPage.element);
         }
 
         let data = {
@@ -72,7 +72,7 @@ export default class Router {
 
         let currentPage = this.pageStack.pop();
         currentPage.router = null;
-        currentPage.element.remove();
+        currentPage.element.parentNode.removeChild(currentPage.element);
 
         let page = this.foregroundPage;
         this.rootElement.appendChild(page.element);
@@ -80,7 +80,7 @@ export default class Router {
     }
 
     onHistoryForward(data) {
-        this.foregroundPage.element.remove();
+        this.foregroundPage.element.parentNode.removeChild(this.foregroundPage.element);
 
         let route = this.getMatchedRoute(data.path);
         let component = new route.component(route.parameters, route.store);
