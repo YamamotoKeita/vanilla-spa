@@ -1,15 +1,18 @@
-
+/**
+ * SPA用のルーター
+ */
 export default class Router {
 
     /**
      * @param {HTMLElement} rootElement
-     * @param {{ path: string, component: any }[]} routeInfo
+     * @param {{ path: string, component: any, store?: object }[]} routeInfo
      */
     constructor(rootElement, routeInfo) {
         this.pageStack = [];
         this.rootElement = rootElement;
         this.routeInfo = routeInfo;
 
+        // NOTE: コピー面倒なので引数破壊する
         routeInfo.forEach(route => {
             let pathInfo = Router.parsePath(route.path);
             route.pathRegExp = pathInfo.regExp;
@@ -35,7 +38,7 @@ export default class Router {
 
     _changePage(path) {
         let route = this.getMatchedRoute(path);
-        // NOTE: どこにもマッチしないケースは簡単にするためここでは無視
+        // NOTE: どこにもマッチしないケースは面倒なので無視
 
         let component = new route.component(route.parameters, route.store);
         component.router = this;

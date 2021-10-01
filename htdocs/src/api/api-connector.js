@@ -1,11 +1,11 @@
-/**
- * 保育園マップ共有のAPIコネクター
- */
+
 import HttpConnection from "../core/http-connection.js";
 import HttpConnectionListener from "../core/http-connection-listener.js";
 
-
-export default class ApiConnector extends HttpConnectionListener{
+/**
+ * 通信処理。アプリケーション内での通信時の共通処理を書く
+ */
+export default class ApiConnector extends HttpConnectionListener {
     constructor(api, ...listeners) {
         super();
         this.api = api;
@@ -27,6 +27,7 @@ export default class ApiConnector extends HttpConnectionListener{
     }
 
     onReceiveData(xhr, response) {
+        // データ受信時の共通処理
     }
 
     /**
@@ -35,10 +36,6 @@ export default class ApiConnector extends HttpConnectionListener{
      * @param errorType
      */
     onError(xhr, errorType) {
-        this.showErrorMessage(xhr, errorType);
-    }
-
-    showErrorMessage(xhr, errorType) {
         let title = this.getErrorTitle(xhr, errorType);
         console.log(`${title}: ${this.api.url}`);
     }

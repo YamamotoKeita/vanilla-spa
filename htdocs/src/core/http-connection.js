@@ -97,9 +97,11 @@ export default class HttpConnection {
 
         if (queryArray) {
             let query = queryArray.map(keyValue => {
-                let key = decodeURIComponent(keyValue.key);
-                let value = (keyValue.value !== null) ? decodeURIComponent(keyValue.value) : null;
-                return `${key}=${value}`;
+                let result = decodeURIComponent(keyValue.key);
+                if (keyValue.value !== null) {
+                    result += decodeURIComponent(keyValue.value);
+                }
+                return result;
             }).join('&');
 
             let separator = url.includes("?") ? "&" : "?";

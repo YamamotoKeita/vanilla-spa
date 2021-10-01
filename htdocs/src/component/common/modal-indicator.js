@@ -3,6 +3,9 @@ import Component from "../../core/component.js";
 
 let modalIndicatorView = null;
 
+/**
+ * 全画面を覆うグルグルインジケーター
+ */
 export default class ModalIndicator extends Component {
 
     constructor() {

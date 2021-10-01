@@ -1,7 +1,7 @@
 import Router from "./core/router.js";
-import LoginView from "./view/login-view.js";
-import NurseryListView from "./view/nursery-list-view.js";
-import NurseryDetailView from "./view/nursery-detail-view.js";
+import LoginView from "./component/login-view.js";
+import NurseryListView from "./component/nursery-list-view.js";
+import NurseryDetailView from "./component/nursery-detail-view.js";
 import NurseryRepository from "./repository/nursery-repository.js";
 
 (() => {

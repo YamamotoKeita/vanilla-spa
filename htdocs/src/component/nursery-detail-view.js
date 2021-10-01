@@ -1,5 +1,8 @@
 import Component from "../core/component.js";
 
+/**
+ * 保育園詳細画面
+ */
 export default class NurseryDetailView extends Component {
     constructor(parameters, store) {
         super();
@@ -26,7 +29,6 @@ export default class NurseryDetailView extends Component {
     }
 
     updateView(nursery) {
-        console.log(nursery);
         this.nameView.textContent = nursery.name;
         this.furiganaView.textContent = nursery.nameKana;
         this.addressView.textContent = nursery.address;

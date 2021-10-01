@@ -9,7 +9,7 @@ export default class LoginApi extends BaseApi {
         super();
     }
 
-    get url() { return `/assets/nurseries.json`; }
+    get url() { return `/assets/login-session.json`; }
 
     get httpMethod() { return 'GET'; }
 }

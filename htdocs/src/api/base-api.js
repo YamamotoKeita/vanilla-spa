@@ -1,5 +1,8 @@
 import HttpApi from "../core/http-api.js";
 
+/**
+ * APIの基盤クラス。APIの共通仕様を書く
+ */
 export default class BaseApi extends HttpApi {
 
     get headers() {

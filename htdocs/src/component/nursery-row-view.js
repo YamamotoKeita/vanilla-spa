@@ -1,5 +1,8 @@
 import Component from "../core/component.js";
 
+/**
+ * 保育園一覧の行
+ */
 export default class NurseryRowView extends Component {
     constructor(nursery) {
         super();

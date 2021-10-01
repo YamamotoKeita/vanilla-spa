@@ -1,7 +1,9 @@
 import Component from "../core/component.js";
-import NurseryRepository from "../repository/nursery-repository.js";
 import NurseryRowView from "./nursery-row-view.js";
 
+/**
+ * 保育園一覧画面
+ */
 export default class NurseryListView extends Component {
     constructor(parameters, store) {
         super();

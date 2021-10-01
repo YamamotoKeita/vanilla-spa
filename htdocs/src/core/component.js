@@ -1,4 +1,6 @@
-
+/**
+ * UIコンポーネント
+ */
 export default class Component {
 
     constructor() {
@@ -41,7 +43,13 @@ export default class Component {
      */
     findElements(query) {
         let nodeList = this.element.querySelectorAll(query);
-        return Array.from(nodeList);
+
+        return Array.from(nodeList, element => {
+            if (element instanceof HTMLElement) {
+                return element;
+            }
+            throw 'Query results contain an element that is not HTMLElement.';
+        });
     }
 
     /**
@@ -52,6 +60,10 @@ export default class Component {
     static createElementFromHTML(html, containerTag) {
         let container = document.createElement(containerTag);
         container.innerHTML = html.trim();
-        return container.firstChild;
+        let element = container.firstChild;
+        if (element instanceof HTMLElement) {
+            return element;
+        }
+        throw 'invalid error';
     }
 }

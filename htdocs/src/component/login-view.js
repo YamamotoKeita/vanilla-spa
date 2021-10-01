@@ -3,6 +3,9 @@ import ApiConnector from "../api/api-connector.js";
 import LoginApi from "../api/login-api.js";
 import ModalIndicatorBehavior from "../api/modal-indicator-behavior.js";
 
+/**
+ * ログイン画面
+ */
 export default class LoginView extends Component {
     constructor() {
         super();

@@ -1,6 +1,6 @@
 /**
  * HTTP APIのインターフェース
- * 分かりやすさのため各APIクラスは明示的にこのクラスを継承する
+ * 各APIクラスはこのクラスを継承する
  */
 export default class HttpApi {
 
@@ -42,7 +42,7 @@ export default class HttpApi {
      *
      * @param xhr {XMLHttpRequest}
      * @param response {string}
-     * @return
+     * @return {any}
      *
      */
     convertResponse(xhr, response) {}

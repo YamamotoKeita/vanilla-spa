@@ -1,6 +1,9 @@
 import GetNurseriesApi from "../api/get-nurseries-api.js";
 import ApiConnector from "../api/api-connector.js";
 
+/**
+ * 保育園データのリポジトリ
+ */
 export default class NurseryRepository {
     constructor() {
         this.onNurseryUpdated = nurseries => {};

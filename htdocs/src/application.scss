@@ -1,8 +1,8 @@
-@forward "view/common/modal-indicator";
-@forward "view/login-view";
-@forward "view/nursery-list-view";
-@forward "view/nursery-row-view";
-@forward "view/nursery-detail-view";
+@forward "component/common/modal-indicator";
+@forward "component/login-view";
+@forward "component/nursery-list-view";
+@forward "component/nursery-row-view";
+@forward "component/nursery-detail-view";
 
 @use "common";
 
