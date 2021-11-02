@@ -46,7 +46,8 @@ export default class ApiConnector extends HttpConnectionListener {
             case 'timeout':
             case 'aborted':
                 return '通信エラー';
-            case 'invalidResponse':
+            case 'validationError':
+            case 'parseError':
                 if (xhr.status === 200) {
                     return '想定外のレスポンス';
                 } else if (400 <= xhr.status && xhr.status <= 499) {
