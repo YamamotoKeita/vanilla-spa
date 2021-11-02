@@ -68,20 +68,22 @@ export default class HttpConnection {
         let response = xhr.response;
         this.listeners.forEach(listener => listener.onReceiveData(xhr, response));
 
-        let data = null;
-        try {
-            if (this.api.validate(xhr, response)) {
-                data = this.api.convertResponse(xhr, response);
-            }
-        } catch (error) {
-            console.error(`レスポンスのパースに失敗。${error}`);
+        if (!this.api.validate(xhr, response)) {
+            console.error(`バリデーションエラー`);
+            this.onError(xhr, 'validationError');
+            return;
         }
 
-        if (data !== null) {
-            onSuccess(data);
-        } else {
-            this.onError(xhr, 'invalidResponse')
+        let data;
+        try {
+            data = this.api.convertResponse(xhr, response);
+        } catch (error) {
+            console.error(`レスポンスのパースに失敗。${error}`);
+            this.onError(xhr, 'parseError');
+            return;
         }
+
+        onSuccess(data);
     }
 
     onError(xhr, errorType) {
